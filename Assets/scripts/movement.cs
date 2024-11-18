@@ -8,6 +8,7 @@ public class movement : MonoBehaviour
     public float VerticalInput;
     public float movespeed;
     public float turnSpeed;
+    public GameObject bulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +22,9 @@ public class movement : MonoBehaviour
         transform.Rotate(Vector3.up * movespeed * HorizontalInput * turnSpeed * Time.deltaTime);
        VerticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.left * movespeed * VerticalInput * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
+        }
     }
 }
