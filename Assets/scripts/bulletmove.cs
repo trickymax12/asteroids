@@ -6,6 +6,8 @@ public class bulletmove : MonoBehaviour
 {
     public Rigidbody bulletRb;
     public float moveSpeed;
+    public float XRange;
+    public float YRange;
     // Start is called before the first frame update
     void Start()
     {
