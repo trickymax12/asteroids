@@ -18,5 +18,13 @@ public class bulletmove : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * Time.deltaTime * moveSpeed);
+        
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("astroid"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
