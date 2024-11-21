@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class movement : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class movement : MonoBehaviour
     public float movespeed;
     public float turnSpeed;
     public GameObject bulletPrefab;
+    public int lives = 1;
+    public bool GameIsActive;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameIsActive = true;
     }
 
     // Update is called once per frame
@@ -26,5 +29,20 @@ public class movement : MonoBehaviour
         {
             Instantiate(bulletPrefab, transform.position, transform.rotation);
         }
+        
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("astroid"))
+        {
+            lives -= 1;
+            GameOver();
+        }
+    }
+    private void GameOver()
+    {
+        GameIsActive = false;
+        Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
 }
