@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9acbf188b20204a8da1baa682a429a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 1
   astroidprefab: {fileID: 8126176134070521344, guid: afa3162f389d52f47ae2e7cc68e1d3eb, type: 3}
   pointvalue: 1
 --- !u!54 &2143444620912058721
